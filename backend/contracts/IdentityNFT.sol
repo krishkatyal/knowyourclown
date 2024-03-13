@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import '@openzeppelin/contracts/utils/Counters.sol';
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Identity {
-
+    using Counters for Counters.Counter;
+    
     struct IdentityData {
         string name; // Name of the person (hashed)
         string dob; // Date of birth (hashed)
@@ -19,61 +19,67 @@ contract Identity {
         string photoHash; // IPFS hash of photo (hashed)
     }
 
-    mapping(uint256 => IdentityData) private identityData;
-    Counters.Counter private identityIds;
+    Counters.Counter private identityIds; // for getting the total number of identities created
 
-    constructor(string memory _name, string memory _symbol)  {}
+    mapping(address => IdentityData) private identityData; // mapping address to identity data
+
+    constructor(string memory _name, string memory _symbol) {}
+
+    event IdentityCreated(address indexed owner);
+    
+
+    // Returns uint
+    // Start  - 0
+    // Processing  - 1
+    // Completed - 2
+    // Canceled - 3
+    
+    mapping(address=> uint8) public status;
+    function set_status(uint8 _status) public {
+        status[msg.sender]= _status;
+    }
+
 
     function setDetails(
         string memory _name,
         string memory _dob,
         string memory _aadhaarNumber,
-        string memory gender,
-        string memory contact_no,
-        string memory email,
-        string memory blood_group,
-        string memory city,
-        string memory state,
-        string memory photoHash
-    ) external {
-        uint256 id = identityIds.current();
+        string memory _gender,
+        string memory _contact_no,
+        string memory _email,
+        string memory _blood_group,
+        string memory _city,
+        string memory _state,
+        string memory _photoHash
+    ) public  {
+        // uint256 id = identityIds.current();
+        require(
+            keccak256(abi.encodePacked(identityData[msg.sender].name)) ==
+                keccak256(abi.encodePacked("")),
+            "Identity already exists"
+        );
         identityIds.increment();
-        identityData[id] = identityData(
+        identityData[msg.sender] = IdentityData(
             _name,
             _dob,
             _aadhaarNumber,
-            gender,
-            contact_no,
-            email,
-            blood_group,
-            city,
-            state,
-            photoHash
+            _gender,
+            _contact_no,
+            _email,
+            _blood_group,
+            _city,
+            _state,
+            _photoHash
         );
+        emit IdentityCreated(msg.sender); // emit event for identity creation
     }
 
-    function getDetails(uint256 _id) external view returns (IdentityData memory) {
-        return identityData[_id];
+    function getDetails() external view returns (IdentityData memory) {
+        return identityData[msg.sender];
     }
 
     // returns the total number of identities created
     function getTotalIdentities() external view returns (uint256) {
         return identityIds.current();
     }
-
-    // function createIdentityNFT(
-    //     uint256 tokenId,
-    //     string memory name,
-    //     string memory dob,
-    //     string memory passportNumber
-    //     // string memory panNumber
-    // ) external {
-    //     _mint(msg.sender, tokenId);
-    //     userData[tokenId] = UserData(name, dob, passportNumber);
-    //     // userData[tokenId] = UserData(name, dob, passportNumber, panNumber);
-    // }
-
-    // function getIdentityData(uint256 tokenId) external view returns (UserData memory) {
-    //     return userData[tokenId];
-    // }
 }
