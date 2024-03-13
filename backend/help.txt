@@ -1,0 +1,7 @@
+
+
+
+
+
+# this is to deploy the contract to sepolia network
+npx hardhat run scripts/deploy.js --network sepolia
