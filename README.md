@@ -22,6 +22,11 @@ Verifying government-issued IDs (passport, driving license))
 - This ensures the document remains unreadable even if intercepted during transfer
 - State-of-the-art encryption techniques safeguard user data during KYC.
 - Advanced algorithms ensure confidentiality and security.
+  
+### Automated ID verification
+- Optical Character Recognition (OCR) for data extraction from documents.
+- Biometric checks (facial recognition, fingerprints) for enhanced security.
+
 
 ### Multilingual Support 🌍
 - Comprehensive support for diverse global languages.
