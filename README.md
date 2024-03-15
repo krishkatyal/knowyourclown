@@ -4,6 +4,10 @@ Welcome to our Electronic Know Your Customer (E-KYC) platform! 🌐🔒
 
 Our platform revolutionizes the KYC process by integrating cutting-edge encryption technology, multilingual support, and conversational interfaces. Powered by blockchain, we ensure the highest level of data integrity and security while streamlining the KYC process for businesses and individuals worldwide.
 
+
+https://github.com/krishkatyal/knowyourclown/assets/91791239/a4c5f124-0738-44ff-9f1f-1cbac7bb9d31
+
+
 ## Features
 
 ### 1. Encryption 🔐
