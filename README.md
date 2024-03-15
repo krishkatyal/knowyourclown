@@ -7,7 +7,7 @@ Our platform revolutionizes the KYC process by integrating cutting-edge encrypti
 
 https://github.com/krishkatyal/knowyourclown/assets/91791239/a4c5f124-0738-44ff-9f1f-1cbac7bb9d31
 
-##Curent KYC Procedure
+## Curent KYC Procedure
 - Customer Identification (Collecting personal details (name, DOB, address)
 Verifying government-issued IDs (passport, driving license))
 - Time-consuming : Manual verification and document collection can be slow.
