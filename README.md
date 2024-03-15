@@ -15,9 +15,11 @@ Verifying government-issued IDs (passport, driving license))
 - Poor user experience: Lengthy onboarding procedures can frustrate customers.
 - Data privacy concerns: Balancing KYC requirements with strong data protection regulations.
 
-## Features
+## Our Proposed Solution
 
 ### Encryption 🔐
+- Users upload documents to the platform. Before uploading, the user's device encrypts the document.
+- This ensures the document remains unreadable even if intercepted during transfer
 - State-of-the-art encryption techniques safeguard user data during KYC.
 - Advanced algorithms ensure confidentiality and security.
 
