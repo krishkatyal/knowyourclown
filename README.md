@@ -28,7 +28,7 @@ Verifying government-issued IDs (passport, driving license))
 - Enables seamless KYC interactions in preferred languages.
 
 ### Conversational Interface 💬
-- Simplifies KYC process through natural conversation.
+- Simplifies KYC process through natural conversation using a LLM(Large Language Model) trained on KYC related information.
 - Intelligent chatbots guide users, enhancing user experience.
 
 ### Documents Encryption using Blockchain 📄🔗
